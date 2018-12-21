@@ -7,9 +7,6 @@ An ESP32 based Zwoft Controller
 
 ## Appearance
 
-![rendered](./media/rendered.png)
-
-[View in 3D](https://a360.co/2NFupAk)
 
 ## BOM
 
