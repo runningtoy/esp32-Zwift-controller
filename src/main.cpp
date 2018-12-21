@@ -10,12 +10,9 @@
 #include "BLEKeyboard.h"
 #include "Button.h"
 #include "KeynotesController.h"
-#include "LaserLight.h"
 
 Button previousSlideButton(PREVIOUS_SLIDE_BUTTON_PIN);
 Button nextSlideButton(NEXT_SLIDE_BUTTON_PIN);
-Button laserButton(LASER_BUTTON_PIN);
-LaserLight laserLight(LASER_LIGHT_PIN);
 
 unsigned long lastActiveTime = 0;
 
@@ -57,17 +54,7 @@ void setup() {
     activate();
   });
   nextSlideButton.begin();
-  laserButton.onPress([]() {
-    laserLight.turnOn();
-    activate();
-  });
-  laserButton.onRelease([]() {
-    laserLight.turnOff();
-    activate();
-  });
-  laserButton.begin();
-  laserLight.begin();
-
+  
   LOG_I("Initializing BLE Device '%s'...", DEVICE_NAME);
   BLEDevice::init(DEVICE_NAME);
   LOG_I("Initializing BLE HID services...");
