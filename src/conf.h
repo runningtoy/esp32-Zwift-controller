@@ -2,7 +2,7 @@
 
 #include <BLEHIDDevice.h>
 
-#define DEVICE_NAME "Henry-KeyLight"
+#define DEVICE_NAME "Zwift-Controller"
 
 #define LASER_LIGHT_PIN 32
 #define NEXT_SLIDE_BUTTON_PIN 25
