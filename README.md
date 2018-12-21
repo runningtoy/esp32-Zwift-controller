@@ -1,7 +1,9 @@
-# esp32-keynotes-controller
+# esp32-Zwift-controller
 
-An ESP32 based BLE Keynote remote controller.
-Also known as `KeyLight`.
+
+#IN PROGRESS!  
+
+An ESP32 based Zwoft Controller
 
 ## Appearance
 
