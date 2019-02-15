@@ -9,10 +9,12 @@
 
 #include "BLEKeyboard.h"
 #include "Button.h"
-#include "KeynotesController.h"
 
-Button previousSlideButton(PREVIOUS_SLIDE_BUTTON_PIN);
-Button nextSlideButton(NEXT_SLIDE_BUTTON_PIN);
+Button leftTurn(LEFT_TURN_PIN);
+Button rightTurn(RIGHT_TURN_PIN);
+Button FTPup(FTP_UP_PIN);
+Button FTPdown(FTP_DOWN_PIN);
+Button Screenshoot(SCREENSHOOT_PIN);
 
 unsigned long lastActiveTime = 0;
 
@@ -21,10 +23,12 @@ void activate() {
 }
 
 void updateButtons() {
-  previousSlideButton.update();
-  nextSlideButton.update();
-  laserButton.update();
-}
+  leftTurn.update();
+  rightTurn.update();
+  FTPup.update();
+  FTPdown.update();
+  Screenshoot.update();
+  }
 
 void deepSleep() {
   esp_deep_sleep_start();
@@ -37,24 +41,47 @@ void setup() {
   Serial.begin(115200);
   Serial.println();
 
-  LOG_I("KeyLight - An ESP32 based BLE Keynote remote controller.");
-  LOG_I("Designed by Henry Li <henry1943@163.com>.");
+  LOG_I("zwift_Shortcut - An ESP32 based BLE Keynote remote controller.");
+  LOG_I("based on a design by Henry Li <henry1943@163.com>.");
   LOG_I("Copyright %d. All rights reserved.", 2018);
 
   // Initialize buttons and laser emitter.
-  previousSlideButton.onPress([]() {
+  leftTurn.onPress([]() {
     LOG_D("<<");
-    KeynotesController.previousSlide();
+    BLEKeyboard.strokeKey(KEY_CODE_LEFT_ARROW);
     activate();
   });
-  previousSlideButton.begin();
-  nextSlideButton.onPress([]() {
+  leftTurn.begin();
+
+  rightTurn.onPress([]() {
     LOG_D(">>");
-    KeynotesController.nextSlide();
+    BLEKeyboard.strokeKey(KEY_CODE_RIGHT_ARROW);
     activate();
   });
-  nextSlideButton.begin();
-  
+  rightTurn.begin();
+
+  FTPup.onPress([]() {
+    LOG_D(">>");
+    BLEKeyboard.strokeKey(KEY_CODE_PAGE_UP);
+    activate();
+  });
+  FTPup.begin();
+
+  FTPdown.onPress([]() {
+    LOG_D(">>");
+    BLEKeyboard.strokeKey(KEY_CODE_PAGEDOWN);
+    activate();
+  });
+  FTPdown.begin();
+
+  Screenshoot.onPress([]() {
+    LOG_D(">>");
+    BLEKeyboard.strokeKey(KEY_CODE_F10);
+    activate();
+  });
+  Screenshoot.begin();
+
+
   LOG_I("Initializing BLE Device '%s'...", DEVICE_NAME);
   BLEDevice::init(DEVICE_NAME);
   LOG_I("Initializing BLE HID services...");

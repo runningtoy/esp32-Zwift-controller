@@ -2,12 +2,13 @@
 
 #include <BLEHIDDevice.h>
 
-#define DEVICE_NAME "Zwift-Controller"
+#define DEVICE_NAME "zwift_Shortcut"
 
-#define LASER_LIGHT_PIN 32
-#define NEXT_SLIDE_BUTTON_PIN 25
-#define PREVIOUS_SLIDE_BUTTON_PIN 4
-#define LASER_BUTTON_PIN 5
+#define RIGHT_TURN_PIN 25
+#define LEFT_TURN_PIN 4
+#define FTP_UP_PIN 4
+#define FTP_DOWN_PIN 4
+#define SCREENSHOOT_PIN 4
 
 // Sleep after 5 minutes
 #define MAX_ACTIVE_TIME 5 * 60 * 1000
@@ -22,9 +23,11 @@
  */
 #define KEY_CODE_LEFT_ARROW 0x50
 #define KEY_CODE_RIGHT_ARROW 0x4f
+#define KEY_CODE_PAGE_UP 0x4B
+#define KEY_CODE_PAGEDOWN 0x4E
+#define KEY_CODE_F10 0x43
 
-#define KEY_CODE_PREVIOUS_SLIDE KEY_CODE_LEFT_ARROW
-#define KEY_CODE_NEXT_SLIDE KEY_CODE_RIGHT_ARROW
+//https://zwiftinsider.com/keyboard-shortcuts/
 
 const uint8_t KEYBOARD_REPORT_MAP[] PROGMEM = {
     USAGE_PAGE(1),
