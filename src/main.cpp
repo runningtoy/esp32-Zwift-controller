@@ -47,35 +47,35 @@ void setup() {
 
   // Initialize buttons and laser emitter.
   leftTurn.onPress([]() {
-    LOG_D("<<");
+    LOG_D("KEY_CODE_LEFT_ARROW");
     BLEKeyboard.strokeKey(KEY_CODE_LEFT_ARROW);
     activate();
   });
   leftTurn.begin();
 
   rightTurn.onPress([]() {
-    LOG_D(">>");
+    LOG_D("KEY_CODE_RIGHT_ARROW");
     BLEKeyboard.strokeKey(KEY_CODE_RIGHT_ARROW);
     activate();
   });
   rightTurn.begin();
 
   FTPup.onPress([]() {
-    LOG_D(">>");
+    LOG_D("KEY_CODE_PAGE_UP");
     BLEKeyboard.strokeKey(KEY_CODE_PAGE_UP);
     activate();
   });
   FTPup.begin();
 
   FTPdown.onPress([]() {
-    LOG_D(">>");
+    LOG_D("KEY_CODE_PAGEDOWN");
     BLEKeyboard.strokeKey(KEY_CODE_PAGEDOWN);
     activate();
   });
   FTPdown.begin();
 
   Screenshoot.onPress([]() {
-    LOG_D(">>");
+    LOG_D("KEY_CODE_F10");
     BLEKeyboard.strokeKey(KEY_CODE_F10);
     activate();
   });
