@@ -95,7 +95,7 @@ void setup() {
 void loop() {
   updateButtons();
 
-  if (millis() - lastActiveTime > MAX_ACTIVE_TIME) {
-    deepSleep();
-  }
+  // if (millis() - lastActiveTime > MAX_ACTIVE_TIME) {
+  //   deepSleep();
+  // }
 }
